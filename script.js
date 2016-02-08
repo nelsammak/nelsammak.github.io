@@ -3,7 +3,7 @@ var index_array = [ ];
 //index_id, title_id, content_id
 //auto increment var IDs
 
-function get_note(t) {
+function get_note(t, list_id, title_id) {
 	console.log("get here");
     var title = document.getElementById("note_title");
     title.value = "";
@@ -11,6 +11,7 @@ function get_note(t) {
     var content = document.getElementById("note_content");
     content.value = "";
    	content.value = index_array[t][1];
+   	del_note(list_id, t, title_id)
 }
 //save creates index element
 function save_note(index_id, title_id, content_id, list_id) {
@@ -52,7 +53,7 @@ function update_index(title_id, list_id){
 
 	    anchor.innerText = index_array[i][0];
 	    console.log(i);
-	  	anchor.onclick = function () {get_note (i);};
+	  	anchor.onclick = function () {get_note (i, list_id, title_id);};
 
 
 		var icon_anchor = document.createElement("a");
